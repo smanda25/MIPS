@@ -20,14 +20,7 @@ module datapath(input logic clk, reset,
  // op and funct fields to controller
  assign op = instr[31:26];
  assign funct = instr[5:0];
- // Your datapath hardware goes below. Instantiate each of the submodules
- // that you need. Remember that alu's, mux's and various other
- // versions of parameterizable modules are available in textbook 7.6
- // Here, parameterizable 3:1 and 4:1 muxes are provided below for your use.
- // Remember to give your instantiated modules applicable names
- // such as pcreg (PC register), wdmux (Write Data Mux), etc.
- // so it's easier to understand.
- // ADD CODE HERE
+ // 
  flopenr #(32) pcreg(clk, reset, pcen, pcnext, pc);
  mux2 #(32) pcmux(pc, aluout, iord, adr);
  flopenr #(32) instrreg(clk, reset, irwrite, readdata, instr);
